@@ -1,19 +1,21 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, Suspense } from "react";
 import type { FC, ReactNode } from "react";
-import hyRequest from "@/network";
+import { Outlet } from "react-router-dom";
+import Navbar from "./navbar";
 
 interface IProps {
   children?: ReactNode;
 }
 
 const Discover: FC<IProps> = () => {
-  useEffect(() => {
-    const res = hyRequest.get({
-      url: "/banner"
-    });
-    console.log(res);
-  });
-  return <div>Discover</div>;
+  return (
+    <div>
+      <Navbar />
+      <Suspense fallback="">
+        <Outlet />
+      </Suspense>
+    </div>
+  );
 };
 
 export default memo(Discover);
