@@ -5,11 +5,11 @@ import {
   useDispatch,
   useSelector
 } from "react-redux";
-import demoReducer from "./modules/demo";
 
+import recommendReducer from "./modules/recommend";
 const store = configureStore({
   reducer: {
-    demo: demoReducer
+    recommend: recommendReducer
   }
 });
 
