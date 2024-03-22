@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useMemo, useState } from "react";
 import type { FC, ReactNode } from "react";
-import { SwiperWrapper } from "./style";
+import { SwiperRight, SwiperWrapper } from "./style";
 import { useAppSelector, useAppShallowEqual } from "@/store";
 import Carousel from "@/base-ui/carousel";
 
@@ -44,6 +44,12 @@ const Swiper: FC<IProps> = () => {
           />
         )}
       </div>
+      <SwiperRight>
+        <a href="/download">下载客户端</a>
+        <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
+        <span className="banner_sprite shadow shadowL"></span>
+        <span className="banner_sprite shadow shadowR"></span>
+      </SwiperRight>
     </SwiperWrapper>
   );
 };

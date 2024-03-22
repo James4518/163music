@@ -4,3 +4,11 @@ export interface IBanner {
   typeTitle: string;
   url: string;
 }
+export interface IHotRecommends {
+  id: number;
+  name: string;
+  picUrl: string;
+  playCount: number;
+  trackCount: number;
+  highQuality: boolean;
+}

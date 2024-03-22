@@ -13,9 +13,9 @@ export const CarouselWrapper = styled.div`
   .slick-prev {
     left: -30px;
   }
-  .slick-next {
+  /* .slick-next {
     right: -20px;
-  }
+  } */
   .slick-prev:before,
   .slick-next:before {
     font-size: 30px;
