@@ -19,6 +19,13 @@ module.exports = {
   webpack: {
     alias: {
       "@": resolve("src")
+    },
+    proxy: {
+      "/api": {
+        target: process.env.REACT_APP_BASE_URL,
+        changeOrigin: true,
+        pathRewrite: { "^/api": "" }
+      }
     }
   }
 };

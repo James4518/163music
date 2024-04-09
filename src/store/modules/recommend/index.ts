@@ -1,10 +1,15 @@
-import { getBanners, getHotRecommend } from "@/network/modules/recommend";
+import {
+  getBanners,
+  getHotRecommend,
+  getNewAlbum
+} from "@/network/modules/recommend";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBanner, IHotRecommends } from "./type";
+import { IAlbum, IBanner, IHotRecommends } from "./type";
 
 const initialState = {
   banners: [] as IBanner[],
-  hotRecommends: [] as IHotRecommends[]
+  hotRecommends: [] as IHotRecommends[],
+  albums: [] as IAlbum[]
 };
 const recommandSlice = createSlice({
   name: "recommends",
@@ -18,25 +23,31 @@ const recommandSlice = createSlice({
       { payload }: PayloadAction<IHotRecommends[]>
     ) {
       state.hotRecommends = payload;
+    },
+    changeAlbumAction(state, { payload }: PayloadAction<IAlbum[]>) {
+      state.albums = payload;
     }
   }
 });
 
-export const { changeBannersAction, changeHotRecommendsAction } =
-  recommandSlice.actions;
+export const {
+  changeBannersAction,
+  changeHotRecommendsAction,
+  changeAlbumAction
+} = recommandSlice.actions;
 export default recommandSlice.reducer;
 
-export const fetchBannersDataAction = createAsyncThunk(
-  "banners",
-  async (arg, { dispatch }) => {
-    const res = await getBanners();
-    dispatch(changeBannersAction(res.banners));
-  }
-);
-export const fetchHotRecommendDataAction = createAsyncThunk(
-  "hotRemmend",
-  async (arg, { dispatch }) => {
-    const res = await getHotRecommend(8);
-    dispatch(changeHotRecommendsAction(res.result));
+export const fetchRecommendDataAction = createAsyncThunk(
+  "recommend/data",
+  (_, { dispatch }) => {
+    getBanners().then((res) => {
+      dispatch(changeBannersAction(res.banners));
+    });
+    getHotRecommend().then((res) => {
+      dispatch(changeHotRecommendsAction(res.result));
+    });
+    getNewAlbum().then((res) => {
+      dispatch(changeAlbumAction(res.albums));
+    });
   }
 );

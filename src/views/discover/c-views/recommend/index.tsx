@@ -1,13 +1,11 @@
 import React, { memo, useEffect } from "react";
 import type { FC, ReactNode } from "react";
 import Swiper from "./c-cpns/swiper/swiper";
-import {
-  fetchBannersDataAction,
-  fetchHotRecommendDataAction
-} from "@/store/modules/recommend";
+import { RecommendWrapper } from "./style";
 import { useAppDispatch } from "@/store";
 import HotRecommend from "./c-cpns/hot-recommend";
-import { RecommendWrapper } from "./style";
+import { fetchRecommendDataAction } from "@/store/modules/recommend";
+import NewAlbum from "./c-cpns/new-album";
 
 interface IProps {
   children?: ReactNode;
@@ -16,8 +14,7 @@ interface IProps {
 const Recommand: FC<IProps> = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchBannersDataAction());
-    dispatch(fetchHotRecommendDataAction());
+    dispatch(fetchRecommendDataAction());
   }, []);
   return (
     <RecommendWrapper>
@@ -25,6 +22,7 @@ const Recommand: FC<IProps> = () => {
       <div className="wrap-v2 content">
         <div className="left">
           <HotRecommend />
+          <NewAlbum />
         </div>
         <div className="right"></div>
       </div>

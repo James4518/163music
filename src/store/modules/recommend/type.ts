@@ -12,3 +12,32 @@ export interface IHotRecommends {
   trackCount: number;
   highQuality: boolean;
 }
+export interface Artist {
+  name: string;
+  id: number;
+  picId: number;
+  img1v1Id: number;
+  briefDesc: string;
+  picUrl: string;
+  img1v1Url: string;
+  albumSize: number;
+  alias: any[];
+  trans: string;
+  musicSize: number;
+  topicPerson: number;
+  img1v1Id_str: string;
+}
+
+export interface IAlbum {
+  name: string;
+  id: number;
+  type: string;
+  size: number;
+  picId: number;
+  blurPicUrl: string;
+  companyId: number;
+  picUrl: string;
+  publishTime: number;
+  artist: Artist;
+  artists: Artist[];
+}

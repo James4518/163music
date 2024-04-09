@@ -7,6 +7,13 @@ const theme: DefaultTheme = {
   },
   fontSize: {
     primary: "14px"
+  },
+  mixin: {
+    textNowrap: `
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  `
   }
 };
 export default theme;

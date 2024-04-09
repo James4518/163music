@@ -1,8 +1,7 @@
-import { IBanner } from "@/store/modules/recommend/type";
 import hyRequest from "..";
-import { IHotRecommendsRes } from "./type";
+import { IAlbumRes, IBannerRes, IHotRecommendsRes } from "./type";
 
-export function getBanners(): Promise<{ banners: IBanner[] }> {
+export function getBanners(): Promise<IBannerRes> {
   return hyRequest.get({
     url: "/banner"
   });
@@ -13,5 +12,10 @@ export function getHotRecommend(limit = 30): Promise<IHotRecommendsRes> {
     params: {
       limit
     }
+  });
+}
+export function getNewAlbum(): Promise<IAlbumRes> {
+  return hyRequest.get({
+    url: "/album/newest"
   });
 }

@@ -24,7 +24,7 @@ const HotRecommend: FC<IProps> = () => {
         moreLink="/discover/songs"
       />
       <div className="recommend-list">
-        {hotRecommends.map((item) => {
+        {hotRecommends.slice(0, 8).map((item) => {
           return <SongMenuItem itemData={item} key={item.id}></SongMenuItem>;
         })}
       </div>
