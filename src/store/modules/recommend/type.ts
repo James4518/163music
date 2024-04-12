@@ -27,7 +27,6 @@ export interface Artist {
   topicPerson: number;
   img1v1Id_str: string;
 }
-
 export interface IAlbum {
   name: string;
   id: number;
@@ -40,4 +39,14 @@ export interface IAlbum {
   publishTime: number;
   artist: Artist;
   artists: Artist[];
+}
+export interface IPlayList {
+  id: number;
+  name: string;
+  coverImgUrl: string;
+  playCount: number;
+  trackCount: number;
+  subscribedCount: number;
+  description: string;
+  tracks: [{ id: number; name: string }];
 }

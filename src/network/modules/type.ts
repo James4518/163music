@@ -1,7 +1,8 @@
 import {
   IAlbum,
   IBanner,
-  IHotRecommends
+  IHotRecommends,
+  IPlayList
 } from "@/store/modules/recommend/type";
 
 export interface IBannerRes {
@@ -17,4 +18,8 @@ export interface IHotRecommendsRes {
 export interface IAlbumRes {
   code: number;
   albums: IAlbum[];
+}
+export interface IRankingRes {
+  code: number;
+  playlist: IPlayList;
 }
