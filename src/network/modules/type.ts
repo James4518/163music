@@ -1,5 +1,6 @@
 import {
   IAlbum,
+  IArtist,
   IBanner,
   IHotRecommends,
   IPlayList
@@ -22,4 +23,8 @@ export interface IAlbumRes {
 export interface IRankingRes {
   code: number;
   playlist: IPlayList;
+}
+export interface IArtistsRes {
+  code: number;
+  artists: IArtist[];
 }

@@ -1,4 +1,5 @@
 import {
+  getArtistList,
   getBanners,
   getHotRecommend,
   getNewAlbum,
@@ -6,13 +7,14 @@ import {
 } from "@/network/modules/recommend";
 import { IRankingRes } from "@/network/modules/type";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IAlbum, IBanner, IHotRecommends, IPlayList } from "./type";
+import { IAlbum, IArtist, IBanner, IHotRecommends, IPlayList } from "./type";
 
 const initialState = {
   banners: [] as IBanner[],
   hotRecommends: [] as IHotRecommends[],
   albums: [] as IAlbum[],
-  rankings: [] as IPlayList[]
+  rankings: [] as IPlayList[],
+  artists: [] as IArtist[]
 };
 const recommandSlice = createSlice({
   name: "recommends",
@@ -32,6 +34,9 @@ const recommandSlice = createSlice({
     },
     changeRankingAction(state, { payload }: PayloadAction<IPlayList[]>) {
       state.rankings = payload;
+    },
+    changeArtistsAction(state, { payload }: PayloadAction<IArtist[]>) {
+      state.artists = payload;
     }
   }
 });
@@ -40,7 +45,8 @@ export const {
   changeBannersAction,
   changeHotRecommendsAction,
   changeAlbumAction,
-  changeRankingAction
+  changeRankingAction,
+  changeArtistsAction
 } = recommandSlice.actions;
 export default recommandSlice.reducer;
 
@@ -55,6 +61,9 @@ export const fetchRecommendDataAction = createAsyncThunk(
     });
     getNewAlbum().then((res) => {
       dispatch(changeAlbumAction(res.albums));
+    });
+    getArtistList(5).then((res) => {
+      dispatch(changeArtistsAction(res.artists));
     });
   }
 );

@@ -50,3 +50,13 @@ export interface IPlayList {
   description: string;
   tracks: [{ id: number; name: string }];
 }
+export interface IArtist {
+  id: number;
+  name: string;
+  picUrl: string;
+  alias: [];
+  albumSize: number;
+  musicSize: number;
+  fansCount: number;
+  followed: number;
+}

@@ -1,5 +1,11 @@
 import hyRequest from "..";
-import { IAlbumRes, IBannerRes, IHotRecommendsRes, IRankingRes } from "./type";
+import {
+  IAlbumRes,
+  IArtistsRes,
+  IBannerRes,
+  IHotRecommendsRes,
+  IRankingRes
+} from "./type";
 
 export function getBanners(): Promise<IBannerRes> {
   return hyRequest.get({
@@ -24,6 +30,14 @@ export function getPlaylistDetail(id: number): Promise<IRankingRes> {
     url: "/playlist/detail",
     params: {
       id
+    }
+  });
+}
+export function getArtistList(limit = 30): Promise<IArtistsRes> {
+  return hyRequest.get({
+    url: "/artist/list",
+    params: {
+      limit
     }
   });
 }

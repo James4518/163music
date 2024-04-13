@@ -11,6 +11,7 @@ import {
 import NewAlbum from "./c-cpns/new-album";
 import HotRanking from "./c-cpns/hot-ranking";
 import UserLogin from "./c-cpns/user-login";
+import SettleSinger from "./c-cpns/settle-singer";
 
 interface IProps {
   children?: ReactNode;
@@ -33,6 +34,7 @@ const Recommand: FC<IProps> = () => {
         </div>
         <div className="right">
           <UserLogin />
+          <SettleSinger />
         </div>
       </div>
     </RecommendWrapper>
