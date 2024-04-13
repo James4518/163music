@@ -10,6 +10,7 @@ import {
 } from "@/store/modules/recommend";
 import NewAlbum from "./c-cpns/new-album";
 import HotRanking from "./c-cpns/hot-ranking";
+import UserLogin from "./c-cpns/user-login";
 
 interface IProps {
   children?: ReactNode;
@@ -30,7 +31,9 @@ const Recommand: FC<IProps> = () => {
           <NewAlbum />
           <HotRanking />
         </div>
-        <div className="right"></div>
+        <div className="right">
+          <UserLogin />
+        </div>
       </div>
     </RecommendWrapper>
   );
