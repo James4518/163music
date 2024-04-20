@@ -5,7 +5,7 @@ import {
   getNewAlbum,
   getPlaylistDetail
 } from "@/network/modules/recommend";
-import { IRankingRes } from "@/network/modules/type";
+import { IRankingRes } from "@/network/modules/recommend/type";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAlbum, IArtist, IBanner, IHotRecommends, IPlayList } from "./type";
 

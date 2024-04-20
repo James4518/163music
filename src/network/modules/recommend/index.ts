@@ -1,4 +1,4 @@
-import hyRequest from "..";
+import hyRequest from "../..";
 import {
   IAlbumRes,
   IArtistsRes,

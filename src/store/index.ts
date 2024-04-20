@@ -5,11 +5,12 @@ import {
   useDispatch,
   useSelector
 } from "react-redux";
-
 import recommendReducer from "./modules/recommend";
+import playerReducer from "./modules/playbar";
 const store = configureStore({
   reducer: {
-    recommend: recommendReducer
+    recommend: recommendReducer,
+    player: playerReducer
   }
 });
 
